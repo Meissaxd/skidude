@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioSource source;
     [SerializeField] private AudioClip clip;
+    [SerializeField] private AudioClip checkSound;
 
     private void PlayHitSound()
     {
@@ -17,10 +18,17 @@ public class SoundManager : MonoBehaviour
     private void OnEnable()
     {
         PlayerEvents.onHitEvent += PlayHitSound;
+        PlayerEvents.onFlagHitEvent += PlayCheckSound;
     }
 
     private void OnDisable()
     {
         PlayerEvents.onHitEvent -= PlayHitSound;
+        PlayerEvents.onFlagHitEvent -= PlayCheckSound;
+    }
+    private void PlayCheckSound()
+    {
+        if (checkSound != null)
+            source.PlayOneShot(checkSound);
     }
 }

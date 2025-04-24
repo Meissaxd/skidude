@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,12 +8,13 @@ using UnityEngine.SceneManagement;
 public class GameEndUI : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject leaderboardMenu;
     [SerializeField] private Image crossfade;
     [SerializeField] private int nextLevelindex = 0;
-    [SerializeField] private Leaderboard leaderboard;
     void Start()
     {
         gameOverMenu.SetActive(false);
+        leaderboardMenu.SetActive(false);
         crossfade.CrossFadeAlpha(0, 1f, true);
     }
 
@@ -50,6 +50,7 @@ public class GameEndUI : MonoBehaviour
     private void EnableGameOverUI()
     {
         gameOverMenu.SetActive(true);
+        leaderboardMenu.SetActive(true);
     }
 
     public void NextLevel()

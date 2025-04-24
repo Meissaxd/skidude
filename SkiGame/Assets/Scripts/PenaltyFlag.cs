@@ -9,6 +9,7 @@ public class PenaltyFlag : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             FlagEvents.CallRacePenalty();
+            PlayerEvents.CallOnFlagHit();
         }
     }
 }
