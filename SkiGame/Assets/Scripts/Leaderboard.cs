@@ -7,7 +7,7 @@ using TMPro;
 public class Leaderboard : MonoBehaviour
 {
     [SerializeField] private List<float> bestTimes = new();
-    [SerializeField] private List<TextMeshPro> timeTexts= new (); //text reference
+    [SerializeField] private List<TextMeshProUGUI> timeTexts = new();
 
     private void Awake()
     {
